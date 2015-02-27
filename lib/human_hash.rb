@@ -60,7 +60,7 @@ class HumanHash
   # number is an error
   def compress(bytes, target)
     fail ArgumentError, 'Fewer input bytes than requested output' if
-      target < bytes.size
+      target > bytes.size
 
     slices = slice_bytes bytes, target
 

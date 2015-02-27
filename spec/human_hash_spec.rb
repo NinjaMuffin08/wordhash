@@ -20,7 +20,7 @@ describe HumanHash do
 
   describe '#compress' do
     it 'requires a byte list longer than the target length' do
-      expect { HumanHash.new.compress [1, 2, 3], 2 }
+      expect { HumanHash.new.compress [1, 2, 3], 4 }
         .to raise_error ArgumentError
     end
 
