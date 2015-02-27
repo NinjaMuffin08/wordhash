@@ -48,4 +48,37 @@ class HumanHash
 
     @wordlist = wordlist
   end
+
+
+  # Compress a list of byte values to a fixed target length.
+  #
+  # bytes = [96, 173, 141, 13, 135, 27, 96, 149, 128, 130, 151]
+  # HumanHash.new.compress(bytes, 4)
+  # => [205, 128, 156, 96]
+  #
+  # Attempting to compress a smaller number of bytes to a larger
+  # number is an error
+  def compress(bytes, target)
+    fail ArgumentError, 'Fewer input bytes than requested output' if
+      target < bytes.size
+
+    slices = slice_bytes bytes, target
+
+    # XOR checksum-like compression
+    slices.map do |slice|
+      slice.reduce :^
+    end
+  end
+
+  private
+
+  def slice_bytes(bytes, target)
+    slice_size = bytes.size / target
+    slices = bytes.each_slice(slice_size).to_a
+
+    # Catch any left-over bytes in the last segment.
+    extra = slices.pop(slices.size - target).flatten
+    slices.last.concat extra unless extra.empty?
+    slices
+  end
 end
