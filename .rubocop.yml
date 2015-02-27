@@ -1,0 +1,38 @@
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+ClassVars:
+  Description: 'Avoid the use of class variables.'
+  Enabled: false
+
+ClassAndModuleChildren:
+  EnforcedStyle: compact
+
+Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+DoubleNegation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+
+Metrics/MethodLength:
+  Max: 20
+
+Style/ColonMethodCall:
+  Description: 'Do not use :: for method call.'
+  StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#double-colons'
+  Enabled: false
+
+Style/EmptyLines:
+  Enabled: false
+Style/EmptyLinesAroundBlockBody:
+  Enabled: false
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+Style/EmptyLinesAroundMethodBody:
+  Enabled: false
+Style/EmptyLinesAroundModuleBody:
+  Enabled: false
