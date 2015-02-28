@@ -1,26 +1,26 @@
-# humanhash.rb
+# wordhash
 
-[![Build Status](https://travis-ci.org/lpil/humanhash.rb.svg?branch=master)](https://travis-ci.org/lpil/humanhash.rb)
-[![Code Climate](https://codeclimate.com/github/lpil/humanhash.rb/badges/gpa.svg)](https://codeclimate.com/github/lpil/humanhash.rb)
+[![Build Status](https://travis-ci.org/lpil/wordhash.svg?branch=master)](https://travis-ci.org/lpil/humanhash.rb)
+[![Code Climate](https://codeclimate.com/github/lpil/wordhash/badges/gpa.svg)](https://codeclimate.com/github/lpil/humanhash.rb)
 
-humanhash.rb provides human-readable representations of digests.  
+wordhash provides human-readable representations of digests.  
 A clone of Zachary Voase's
 [humanhash](https://github.com/zacharyvoase/humanhash).
 
 ## Example
 
 ```ruby
-require 'human_hash'
+require 'word_hash'
 
 digest = '7528880a986c40e78c38115e640da2a1'
 # => "7528880a986c40e78c38115e640da2a1"
 
-HumanHash.new.humanize digest
+WordHash.new.humanize digest
 # => "three-georgia-xray-jig"
-HumanHash.new.humanize digest, 6
+WordHash.new.humanize digest, 6
 # => "high-mango-white-oregon-purple-charlie"
 
-HumanHash.new.uuid
+WordHash.new.uuid
 # => ["04edcd5325a34dc191d4880676ebae61", "lemon-artist-snake-gee"]
 ```
 

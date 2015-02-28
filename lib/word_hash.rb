@@ -10,7 +10,7 @@ require 'securerandom'
 #
 # As long as you use the same wordlist, the output will be consistent (i.e.
 # the same digest will always render the same representation).
-class HumanHash
+class WordHash
   attr_reader :wordlist
 
   DEFAULT_WORDLIST = %w(
@@ -85,8 +85,8 @@ class HumanHash
   # Accepts the same keyword arguments as `humanize`
   def uuid(*args)
     digest = SecureRandom.uuid.delete '-'
-    human_hash = humanize digest, *args
-    [digest, human_hash]
+    word_hash = humanize digest, *args
+    [digest, word_hash]
   end
 
   private
