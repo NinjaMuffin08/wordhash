@@ -7,6 +7,23 @@ humanhash.rb provides human-readable representations of digests.
 A clone of Zachary Voase's
 [humanhash](https://github.com/zacharyvoase/humanhash).
 
+## Example
+
+```ruby
+require 'human_hash'
+
+digest = '7528880a986c40e78c38115e640da2a1'
+# => "7528880a986c40e78c38115e640da2a1"
+
+HumanHash.new.humanize digest
+# => "three-georgia-xray-jig"
+HumanHash.new.humanize digest, 6
+# => "high-mango-white-oregon-purple-charlie"
+
+HumanHash.new.uuid
+# => ["04edcd5325a34dc191d4880676ebae61", "lemon-artist-snake-gee"]
+```
+
 ## Caveats
 
 Don't store the humanhash output, as its statistical uniqueness is only around
