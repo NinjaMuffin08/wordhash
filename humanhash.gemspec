@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.authors     = ['Louis Pilfold']
   gem.email       = 'louis@lpil.uk'
   gem.homepage    = 'http://github.com/lpil/humanhash.rb'
-  gem.license     = 'MPL v2'
+  gem.license     = 'MIT'
 
   gem.files       = `git ls-files lib spec *.md LICENCE`.split("\n")
   gem.test_files  = gem.files.grep(/\A(test|spec|features)/)
