@@ -2,6 +2,8 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
+require 'securerandom'
+
 # Transforms hex digests to human-readable strings.
 #
 # The format of these strings will look something like:
@@ -79,6 +81,16 @@ class HumanHash
     bytes = bytes.map { |byte| byte.join('').to_i 16 }
 
     wordify_bytes(bytes, words, separator)
+  end
+
+  # Generate a UUID with a human-readable representation.
+  #
+  # Returns `[human_repr, full_digest]`.
+  # Accepts the same keyword arguments as `humanize`
+  def uuid(*args)
+    digest = SecureRandom.uuid.delete '-'
+    human_hash = humanize digest, *args
+    [digest, human_hash]
   end
 
   private
