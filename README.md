@@ -3,8 +3,9 @@
 [![Build Status](https://travis-ci.org/lpil/humanhash.rb.svg?branch=master)](https://travis-ci.org/lpil/humanhash.rb)
 [![Code Climate](https://codeclimate.com/github/lpil/humanhash.rb/badges/gpa.svg)](https://codeclimate.com/github/lpil/humanhash.rb)
 
-humanhash.rb provides human-readable representations of digests. It's clone of
-Zachary Voase's [humanhash](https://github.com/zacharyvoase/humanhash)
+humanhash.rb provides human-readable representations of digests.
+A clone of Zachary Voase's
+[humanhash](https://github.com/zacharyvoase/humanhash).
 
 ## Caveats
 

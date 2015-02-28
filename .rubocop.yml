@@ -12,6 +12,9 @@ Documentation:
   Description: 'Document classes and non-namespace modules.'
   Enabled: false
 
+Style/MultilineOperationIndentation:
+  Enabled: false
+
 DoubleNegation:
   Enabled: false
 

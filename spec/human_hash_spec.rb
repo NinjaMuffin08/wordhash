@@ -45,4 +45,37 @@ describe HumanHash do
       expect(HumanHash.new.compress bytes, 3).to eq [64, 31, 149]
     end
   end
+
+  describe '#humanize' do
+    it 'humanizes' do
+      digest = '60ad8d0d871b6095808297'
+      expect(HumanHash.new.humanize digest)
+        .to eq 'sodium-magnesium-nineteen-hydrogen'
+    end
+
+    it do
+      expect(HumanHash.new.humanize '60ad8d0d871b60958082971')
+        .to eq 'sodium-magnesium-nineteen-hydrogen'
+    end
+
+    it do
+      expect(HumanHash.new.humanize '295734958734589739587')
+        .to eq 'low-october-princess-pennsylvania'
+    end
+
+    it do
+      expect(HumanHash.new.humanize '2398532498572856792989')
+        .to eq 'robin-lemon-south-oregon'
+    end
+
+    it do
+      expect(HumanHash.new.humanize '205934859384566493698')
+        .to eq 'lima-pluto-blossom-six'
+    end
+
+    it do
+      expect(HumanHash.new.humanize '298234859234895734895389')
+        .to eq 'november-cat-vegan-georgia'
+    end
+  end
 end

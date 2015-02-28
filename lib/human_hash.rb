@@ -13,6 +13,7 @@
 # As long as you use the same wordlist, the output will be consistent (i.e.
 # the same digest will always render the same representation).
 class HumanHash
+  attr_reader :wordlist
 
   DEFAULT_WORDLIST = %w(
     ack alabama alanine alaska alpha angel apart april arizona arkansas artist
@@ -52,10 +53,6 @@ class HumanHash
 
   # Compress a list of byte values to a fixed target length.
   #
-  # bytes = [96, 173, 141, 13, 135, 27, 96, 149, 128, 130, 151]
-  # HumanHash.new.compress(bytes, 4)
-  # => [205, 128, 156, 96]
-  #
   # Attempting to compress a smaller number of bytes to a larger
   # number is an error
   def compress(bytes, target)
@@ -70,7 +67,26 @@ class HumanHash
     end
   end
 
+  # Humanize a given hexadecimal digest.
+  #
+  # Change the number of words output by specifying `words`. Change the
+  # word separator with `separator`.
+  def humanize(hexdigest, words = 4, separator = '-')
+    bytes = hexdigest.split('')
+                     .each_slice(2).to_a
+    bytes.pop if bytes.last.size == 1
+
+    bytes = bytes.map { |byte| byte.join('').to_i 16 }
+
+    wordify_bytes(bytes, words, separator)
+  end
+
   private
+
+  def wordify_bytes(bytes, words, separator)
+    compress(bytes, words).map { |byte| wordlist[byte] }
+                          .join separator
+  end
 
   def slice_bytes(bytes, target)
     slice_size = bytes.size / target
