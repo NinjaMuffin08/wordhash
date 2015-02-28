@@ -5,7 +5,7 @@ A clone of Zachary Voase's humanhash."
 
 Gem::Specification.new do |gem|
   gem.name        = 'wordhash'
-  gem.version     = '0.0.1'
+  gem.version     = '0.0.2'
   gem.description = description
   gem.summary     = 'Human-readable representations of digests'
   gem.authors     = ['Louis Pilfold']
